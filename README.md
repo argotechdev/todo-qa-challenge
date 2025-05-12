@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# To-Do List – Desafio de QA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação React com bugs intencionais, criada para avaliação de testadores de software. A proposta é testar a capacidade do candidato em seguir requisitos, identificar falhas e relatar problemas de forma clara e objetiva.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Como rodar o projeto localmente com Docker
 
-### `npm start`
+Siga os passos abaixo para subir a aplicação usando Docker.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Pré-requisitos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Você precisa ter instalado na sua máquina:
 
-### `npm test`
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/) (já vem incluso nas versões atuais do Docker Desktop)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### 2. Clonar o repositório
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/seu-usuario/todo-qa-test.git
+cd todo-qa-test
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Subir a aplicação
 
-### `npm run eject`
+Utilize o seguinte comando:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+docker-compose up --build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A aplicação será iniciada e estará disponível em:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+http://localhost:3000
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 4. Estrutura do projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+todo-qa-test/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   └── TodoItem.jsx
+│   ├── App.jsx
+│   ├── index.js
+│   └── styles.css
+├── Dockerfile
+├── .dockerignore
+├── docker-compose.yml
+├── README.md
+├── package.json
+└── .gitignore
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 5. Funcionalidades da aplicação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+A aplicação simula uma lista de tarefas com as seguintes funções:
 
-### Analyzing the Bundle Size
+- Adicionar nova tarefa
+- Editar tarefa existente
+- Marcar tarefa como concluída
+- Excluir tarefa
+- Contagem de tarefas pendentes e concluídas
+- Armazenamento no localStorage
+- Layout responsivo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> Observação: diversos bugs foram inseridos propositalmente para fins de teste e avaliação.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🌐 Link de acesso online
 
-### Advanced Configuration
+A aplicação também está disponível no link abaixo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[https://qa-test.argo-tech.io](https://qa-test.argo-tech.io)
