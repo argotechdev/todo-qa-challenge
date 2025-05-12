@@ -12,7 +12,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    const safeTasks = tasks.map(task => ({
+      ...task,
+      title: task.title.replaceAll('"', '')
+    }));
+    localStorage.setItem("tasks", JSON.stringify(safeTasks));
   }, [tasks]);
 
   const addTask = () => {
@@ -24,14 +28,16 @@ function App() {
       completed: false,
     };
 
-    setTasks([...tasks, task]); 
+    setTasks([...tasks, task]);
   };
 
   const toggleComplete = (id) => {
-    const updated = tasks.map((task) =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updated);
+    setTimeout(() => {
+      const updated = tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      );
+      setTasks(updated);
+    }, 100);
   };
 
   const deleteTask = (id) => {
@@ -59,6 +65,7 @@ function App() {
           type="text"
           placeholder="Nova tarefa"
           value={newTask}
+          maxLength={50}
           onChange={(e) => setNewTask(e.target.value)}
         />
         <button onClick={addTask}>Adicionar</button>
@@ -66,7 +73,7 @@ function App() {
 
       <p className="count">
         Total: {tasks.length} | Concluídas: {tasks.filter((t) => t.done).length}
-        {}
+        { }
       </p>
 
       <ul className="task-list">
