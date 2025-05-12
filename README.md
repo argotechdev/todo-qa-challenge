@@ -84,4 +84,4 @@ A aplicação simula uma lista de tarefas com as seguintes funções:
 
 A aplicação também está disponível no link abaixo:
 
-[https://qa-test.argo-tech.io](https://qa-test.argo-tech.io)
+[https://argo-qa-challenge.vercel.app/](https://argo-qa-challenge.vercel.app/)
