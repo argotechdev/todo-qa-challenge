@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const safeTasks = tasks.map(task => ({
       ...task,
-      title: task.title.replaceAll('"', '')
+      title: task.title.replace(/[\"'<>\\{}!@#$%¨&*()]/g, '')
     }));
     localStorage.setItem("tasks", JSON.stringify(safeTasks));
   }, [tasks]);
